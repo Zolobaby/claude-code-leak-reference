@@ -1,0 +1,15 @@
+{
+  "name": "claude-code-leak-reference",
+  "version": "1.0.0",
+  "description": "Anthropic Claude Code CLI leaked source architecture reference for OpenClaw",
+  "source": "/Users/jiangheng/Documents/匠恒公司/03_Agent研发/reference/claude-code-leak/src/",
+  "created": "2026-04-03",
+  "modules": [
+    "SKILL.md",
+    "agent-tool-patterns",
+    "team-system",
+    "bash-tool-security",
+    "memory-system"
+  ],
+  "tags": ["reference", "claude-code", "architecture", "multi-agent"]
+}
