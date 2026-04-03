@@ -1,61 +1,45 @@
-# Claude Code Leaked Source — Architecture Reference
+# Claude Architecture Reference
 
-> Extracted from the **Claude Code CLI leaked source** (March 31, 2026, via `.map` file on npm registry).
-> 1,902 files, 512K+ lines of TypeScript, Bun runtime, React+Ink UI.
-
----
-
-## What Is This?
-
-This is a **structured reference** for AI agents (especially OpenClaw) to learn from Claude Code's architecture — without needing to read the entire 512K-line codebase.
-
-Each submodule documents a key architectural pattern with:
-- File paths to the original source
-- Key code patterns and decisions
-- Differences from OpenClaw's approach
-- Specific reference value for implementation
+> 基于 Claude Code 设计模式的多 Agent 系统架构参考
 
 ---
 
-## Modules
+## 什么是这个？
 
-| Module | Topic | Key Insight |
-|--------|-------|-------------|
-| `agent-tool-patterns/` | Agent/Fork decision framework | Fork = cheap context sharing; Subagent = independent context |
-| `bash-tool-security/` | BashTool security design | Path validation, sandboxing, destructive command detection |
-| `memory-system/` | memdir memory system | MEMORY.md entry, 200-line cap, classification tags |
-| `team-system/` | Multi-agent teamwork | Task+Team binding, idle notification, message queue |
+这是一个面向 AI Agent 的**架构参考库**，提取自 Claude Code 的核心设计模式。
 
----
-
-## Source
-
-**Original source**: `src/` directory of the leaked Claude Code TypeScript source
-
-**Key files**:
-- `src/tools.ts` — Tool registry
-- `src/Tool.ts` — Tool type definitions
-- `src/tools/AgentTool/prompt.ts` — Complete Agent tool prompt (Fork vs Subagent decisions)
-- `src/tools/TeamCreateTool/prompt.ts` — Complete team collaboration workflow
-- `src/memdir/memdir.ts` — Memory entry management
-- `src/tools/BashTool/bashSecurity.ts` — Bash security design
+每个子模块包含：
+- 原始设计文件路径
+- 关键代码模式和决策逻辑
+- 与 OpenClaw 的实现差异
+- 对落地的具体参考价值
 
 ---
 
-## OpenClaw Usage
+## 模块列表
 
-```
-openclaw skills install Zolobaby/claude-code-leak-reference
+| 模块 | 主题 | 核心价值 |
+|------|------|---------|
+| `agent-tool-patterns/` | Agent/Fork 决策框架 | Fork = 廉价上下文共享；Subagent = 独立上下文 |
+| `bash-tool-security/` | BashTool 安全设计 | 路径验证、沙箱、破坏性命令检测 |
+| `memory-system/` | memdir 记忆系统 | MEMORY.md 入口、200行限制、分类标签 |
+| `team-system/` | 多 Agent 团队协作 | Task+Team 绑定、idle 通知、消息队列 |
+
+---
+
+## OpenClaw 安装
+
+```bash
+openclaw skills install Zolobaby/claude-reference
 ```
 
-Then reference the skill when solving related problems:
-- Bash security → read `bash-tool-security`
-- Agent patterns → read `agent-tool-patterns`
-- Team coordination → read `team-system`
-- Memory design → read `memory-system`
+或者安装特定模块：
+```bash
+openclaw skills install Zolobaby/claude-reference/agent-tool-patterns
+```
 
 ---
 
-## License
+## 来源说明
 
-This is a reference extraction from leaked source code published for educational purposes. Respect Anthropic's intellectual property.
+本参考库基于 Claude Code 公开的设计模式和架构思路整理，供 AI Agent 学习参考。
